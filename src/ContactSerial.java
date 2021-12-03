@@ -1,12 +1,18 @@
-public class Contact {
+import java.io.Serializable;
+
+public class ContactSerial implements Serializable {
+
+
     private String name;
     private String surname;
     private String phoneNumber;
+    private transient long ignoredField;
 
-    public Contact(String name, String surname, String phoneNumber) {
+    public ContactSerial(String name, String surname, String phoneNumber, long ignoredField){
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
+        this.ignoredField = ignoredField;
     }
 
     public String getName() {
@@ -31,5 +37,13 @@ public class Contact {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public long getIgnoredField() {
+        return ignoredField;
+    }
+
+    public void setIgnoredField(long ignoredField) {
+        this.ignoredField = ignoredField;
     }
 }
